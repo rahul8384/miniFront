@@ -6,24 +6,18 @@ import { useState, useEffect } from 'react';
 function App() {
     const[movies, setMovies] = useState();
 
-    const getMovies  = {
+    const getMovies = async () => {
 
-      axios.get('http://localhost:8080/api/minimoviemr/', { withCredentials: true })
-.then(response => {
-// Handle the response
- api.get("/api/minimoviemr/"); 
+      try{
+        const response = await api.get("/api/minimoviemr/"); 
 
-    console.log(response.data);
+        console.log(response.data);
 
-    setMovies(response.data);
+         setMovies(response.data);
         
-})
-.catch(error => {
-// Handle the error
-console.log(error);
-});
-
-     
+      }catch(err){
+        console.log(err);
+      }
       
     }
 
