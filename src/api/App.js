@@ -1,5 +1,5 @@
 import './App.css';
-import api from './api/axiosConfig';
+import axios from 'axios';
 import { useState, useEffect } from 'react';
 
 
@@ -9,7 +9,7 @@ function App() {
     const getMovies = async () => {
 
       try{
-        const response = await api.get("/api/minimoviemr/"); 
+        const response = await axios.get("/api/minimoviemr/",{withCredentials: true}); 
 
         console.log(response.data);
 
